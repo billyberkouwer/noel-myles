@@ -1,0 +1,13 @@
+@import 'normalize';
+@import '_helpers.scss';
+@import '_fonts.scss';
+
+html {
+    font-size: 62.5%;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+}
