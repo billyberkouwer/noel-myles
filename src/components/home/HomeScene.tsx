@@ -1,25 +1,24 @@
 "use client"
 
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, useGLTF } from "@react-three/drei"
+import { OrbitControls } from "@react-three/drei"
 import CanvasContainer from "../global/CanvasContainer";
-import Model from "../global/Model";
+import LoadModel from "@/components/meshes/LoadModel";
 import { useRef, MutableRefObject } from "react";
-import { Mesh } from "three";
-import { SampledSurface } from "../global/SampledSurface";
+import { InstancedMesh, Vector3 } from "three";
+import SampledSurface from "@/components/threeHelperComponents/SampledSurface";
 import GorseEmitter from "../meshes/GorseEmitter";
-
-export const GORSE_AMOUNT = 300;
-export const BACKGROUND_COLOR = '#b3b6bb';
+import GorseBush2 from "../meshes/GorseBush2";
+import { BACKGROUND_COLOR } from "@/lib/constants";
+import CameraAnimation from "../threeHelperComponents/CameraAnimation";
 
 export default function HomeScene() {
-    const instance = useRef() as MutableRefObject<Mesh>;
-    const { scene } = useGLTF("http://localhost:3000/gltf/gorse-3.gltf");
+    const instance = useRef() as MutableRefObject<InstancedMesh>;
 
     return (
         <CanvasContainer>
-            <Canvas shadows camera={{ near: 0.001, far: 10 }}>
-                <fog attach="fog" args={[BACKGROUND_COLOR, 0.01, 1]} />
+            <Canvas shadows camera={{ near: 0.00001, far: 1.5 }}>
+                <fog attach="fog" args={[BACKGROUND_COLOR, 0.01, 1.5]} />
                 <directionalLight
                     position={[50, 50, -50]}
                     castShadow={true}
@@ -29,25 +28,16 @@ export default function HomeScene() {
                     shadow-camera-far={100}
                     shadow-camera-near={1}
                 />
-                <group scale={[0.01, 0.01, 0.01]}>
-                    <instancedMesh
-                        //@ts-ignore
-                        geometry={scene.children[0].geometry}
-                        //@ts-ignore
-                        material={scene.children[0].material}
-                        rotation={[0, 0, 0]}
-                        ref={el => el ? instance.current = el : null}
-                        args={[undefined, undefined, GORSE_AMOUNT]}
-                        scale={[1, 1, 1]}
-                        castShadow
-                    />
-                    <SampledSurface instance={instance}>
-                        <GorseEmitter />
-                    </SampledSurface>
-                    <Model url={'/gltf/whole-scene.gltf'} />
-                </group>
                 <ambientLight intensity={0.4} />
                 <OrbitControls />
+                <CameraAnimation />
+                <group scale={[0.01, 0.01, 0.01]}>
+                    <GorseBush2 ref={instance} />
+                    <SampledSurface ref={instance}>
+                        <GorseEmitter />
+                    </SampledSurface>
+                    <LoadModel url={'/gltf/whole-scene.gltf'} />
+                </group>
             </Canvas>
         </CanvasContainer>
     )

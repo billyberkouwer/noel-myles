@@ -1,7 +1,7 @@
 "use client"
 
+import { BACKGROUND_COLOR } from "@/lib/constants";
 import { ReactNode, useEffect, useRef, useState } from "react"
-import { BACKGROUND_COLOR } from "../home/HomeScene";
 
 export default function CanvasContainer({children}: {children: ReactNode}) {
     const containerRef = useRef<HTMLDivElement>();
