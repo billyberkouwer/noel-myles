@@ -32,10 +32,10 @@ export default function HomeScene() {
                 <OrbitControls />
                 <CameraAnimation />
                 <group scale={[0.01, 0.01, 0.01]}>
-                    <GorseBush2 ref={instance} />
+                    {/* <GorseBush2 ref={instance} />
                     <SampledSurface ref={instance}>
                         <GorseEmitter />
-                    </SampledSurface>
+                    </SampledSurface> */}
                     <LoadModel url={'/gltf/whole-scene.gltf'} />
                 </group>
             </Canvas>
