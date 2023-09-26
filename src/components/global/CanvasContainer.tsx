@@ -1,6 +1,7 @@
 "use client"
 
 import { ReactNode, useEffect, useRef, useState } from "react"
+import { BACKGROUND_COLOR } from "../home/HomeScene";
 
 export default function CanvasContainer({children}: {children: ReactNode}) {
     const containerRef = useRef<HTMLDivElement>();
@@ -12,6 +13,7 @@ export default function CanvasContainer({children}: {children: ReactNode}) {
             if (container) {
                 container.style.width = window.innerWidth + 'px';
                 container.style.height = window.innerHeight + 'px';
+                container.style.backgroundColor = BACKGROUND_COLOR;
             }
         };
 

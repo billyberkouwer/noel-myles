@@ -10,7 +10,6 @@ export default function useMousePosition() {
     };
 
     const updateTouchPosition = (e: TouchEvent) => {
-        console.log(e.touches[0].clientX)
         setMousePosition({ x: e.touches[0].clientX, y: e.touches[0].clientY})
     }
 
