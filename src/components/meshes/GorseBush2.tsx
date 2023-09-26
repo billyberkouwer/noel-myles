@@ -16,7 +16,7 @@ type GLTFResult = GLTF & {
 
 const GorseBush2 = forwardRef(
     function GorseBush(props, ref: any) {
-        const { nodes, materials } = useGLTF("http://localhost:3000/gltf/gorse-3.gltf") as GLTFResult;
+        const { nodes, materials } = useGLTF("/gltf/gorse-3.gltf") as GLTFResult;
 
         return (
             <instancedMesh

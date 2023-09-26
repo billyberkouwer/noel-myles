@@ -13,7 +13,6 @@ export default function LoadModel({ url, id, position, rotation }: { url: string
                 child.castShadow = true;
                 child.receiveShadow = true;
                 child.material.needsUpdate = true;
-                // child.rotateX(2)
             }
         });
 
