@@ -16,13 +16,13 @@ const BaseCharacter = (props: any) => {
   const [ref, api] = useSphere((index) => ({
     mass: 1,
     type: 'Dynamic',
-    position: [0, 10, 0],
+    position: [10, 10, -30],
     ...props,
   }));
 
   const { forward, backward, left, right, jump } = usePlayerControls();
   const velocity = useRef([0, 0, 0]);
-  useEffect(() => api.velocity.subscribe((v) => (velocity.current = v)), []);
+  useEffect(() => api.velocity.subscribe((v) => (velocity.current = v)), [api]);
 
   useFrame((state) => {
     if (ref.current) {

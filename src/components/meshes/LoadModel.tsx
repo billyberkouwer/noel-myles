@@ -15,6 +15,7 @@ export default function LoadModel({ url, id, position, rotation }: { url: string
         ],
         mass: 0,
         static: true,
+        position: [0,4,0]
     }));
 
     useEffect(() => {

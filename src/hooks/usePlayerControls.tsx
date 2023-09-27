@@ -1,15 +1,10 @@
 import { useState, useEffect } from 'react';
 
-/*****************
- * Player Controls
- ****************/
-
 const usePlayerControls = () => {
-  const keys = { KeyW: 'forward', KeyS: 'backward', KeyA: 'left', KeyD: 'right', Space: 'jump' } as any;
-
   const [movement, setMovement] = useState({ forward: false, backward: false, left: false, right: false, jump: false });
 
   useEffect(() => {
+    const keys = { KeyW: 'forward', KeyS: 'backward', KeyA: 'left', KeyD: 'right', Space: 'jump' } as any;
     const moveFieldByKey = (key: any) => keys[key];
 
     const handleKeyDown = (e: any) => setMovement((m) => ({ ...m, [moveFieldByKey(e.code)]: true }));

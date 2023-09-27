@@ -30,6 +30,7 @@ export default function SizwellScene() {
                 shadow-camera-near={1}
             />
             <ambientLight intensity={0.4} />
+            <PointerLockControls />
             <Physics gravity={[0, -9.8, 0]}>
                 <group scale={[0.01, 0.01, 0.01]}>
                     <GorseBush2 ref={instance} />
@@ -37,7 +38,6 @@ export default function SizwellScene() {
                     <SampledSurface ref={instance}>
                         <GorseEmitter />
                     </SampledSurface>
-                    <PointerLockControls />
                     <BaseCharacter args={[2,2,2]} />
                     <LoadModel url={'/gltf/whole-scene.gltf'} />
                 </group>
