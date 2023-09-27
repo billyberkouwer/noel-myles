@@ -1,9 +1,9 @@
-import HomeScene from "@/components/home/HomeScene";
+import ThreeCanvas from "@/components/home/ThreeCanvas";
 
 export default function Home() {
   return (
     <main className="home__container">
-      <HomeScene />
+      <ThreeCanvas />
     </main>
   )
 }
