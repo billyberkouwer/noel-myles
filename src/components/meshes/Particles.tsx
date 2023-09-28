@@ -105,7 +105,7 @@ export default function Particles() {
             geometry.setAttribute('position', new Float32BufferAttribute(vertices, 3));
         }
         material.uniformsNeedUpdate = true;
-        updateStarsVertices(100, 1000);
+        updateStarsVertices(100, 5000);
         setGeometry(geometry);
         setMaterial(material)
     }, [])
