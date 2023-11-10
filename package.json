@@ -24,6 +24,7 @@
     "react-dom": "18.2.0",
     "sass": "^1.66.1",
     "three": "^0.155.0",
+    "three-custom-shader-material": "^5.4.0",
     "three-to-cannon": "^4.3.0",
     "typescript": "5.2.2"
   }

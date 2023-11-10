@@ -1,6 +1,6 @@
 "use client"
 
-import { OrbitControls, PointerLockControls, PointerLockControlsProps } from "@react-three/drei"
+import { OrbitControls, PointerLockControls, PointerLockControlsProps, Sparkles } from "@react-three/drei"
 import { useRef, MutableRefObject, useEffect } from "react";
 import SampledSurface from "@/components/threeHelpers/SampledSurface";
 import GorseEmitter from "../meshes/GorseEmitter";
@@ -13,6 +13,7 @@ import { Physics } from "@react-three/cannon"
 import LoadSizewellScene from "@/components/meshes/LoadSizewellScene";
 import useFoliageInstanceTransforms from "../threeHelpers/useFoliageInstanceTransforms";
 import GorseBushGreen from "../meshes/GorseBushGreen";
+import Lake from "../meshes/Lake";
 
 export default function SizwellScene() {
     const instances = useRef<MutableRefObject<InstancedMesh>[]>([]);
@@ -47,6 +48,7 @@ export default function SizwellScene() {
                         <GorseEmitter />
                     </SampledSurface>
                     <BaseCharacter args={[1, 6, 3]} />
+                    {/* <Lake /> */}
                     <Particles />
                     <LoadSizewellScene url={'/gltf/whole-scene.gltf'} />
                 </group>
